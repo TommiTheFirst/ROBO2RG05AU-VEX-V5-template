@@ -9,10 +9,11 @@
 
 // Adds the type "bool" and values "true" and "false"
 #include <stdbool.h>
-// Default header for V5 projects
-#include "vex.h"
 
-using namespace vex;
+#include "main.hpp"
+
+// "using namespace" is bad practice and should be avoided
+// using namespace vex;
 
 // A global instance of vex::brain used for printing to the V5 brain screen
 vex::brain Brain;
@@ -50,10 +51,9 @@ static inline void pre_auton(void)
 
 static void autonomous(void)
 {
-  // ..........................................................................
-  // Insert autonomous user code here.
-  // ..........................................................................
-
+    // ..........................................................................
+    // Insert autonomous user code here.
+    // ..........................................................................
 }
 
 /*---------------------------------------------------------------------------*/
@@ -66,7 +66,8 @@ static void autonomous(void)
 /*  You must modify the code to add your own robot specific commands here.   */
 /*---------------------------------------------------------------------------*/
 
-static void usercontrol(void) {
+static void usercontrol(void)
+{
     // User control code here, inside the loop
     while (true) {
         // This is the main execution loop for the user control program.

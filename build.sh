@@ -5,6 +5,8 @@ set -e
 
 # Change the project name here
 NAME=ROBO2RG05AU
+# Verbose output
+VERBOSE=true
 
 if [[ -z $VEX_V5_SDK_PATH  ]] ; then
     printf "VEX_V5_SDK_PATH Environment Variable is not set, please set it!\n" >&2
@@ -13,7 +15,7 @@ fi
 
 build_binary()
 {
-    make $@ P=$NAME T=$VEX_V5_SDK_PATH
+    make $@ P=$NAME T=$VEX_V5_SDK_PATH V=$VERBOSE
 }
 
 upload_binary()
@@ -31,14 +33,14 @@ help_message()
     printf "    upload     Upload the compiled binary to a V5 device\n"
 }
 
-if [[ $# -eq 0 ]] ; then
+if [[ $# -eq 0 ]] ; then # No arguments provided
     build_binary; upload_binary
     exit 0
 fi
 
 case "$1" in
     clean)
-        build_binary clean
+        build_binary clean # make clean
         exit 0;;
     upload)
         upload_binary
